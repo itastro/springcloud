@@ -26,6 +26,11 @@ spring:
         concurrency: 5
         max-concurrency: 10
         prefetch: 1
+  mail:
+    host: smtp.163.com
+    username: itastro@163.com
+    password: zn2526@
+    default-encoding: UTF-8
   redis:
     host: 192.168.28.128
     password: blct2018
@@ -38,3 +43,4 @@ spring:
         min-idle: 0
     timeout: 2000ms
     port: 6379
+mail.fromMail.addr: itastro@163.com
