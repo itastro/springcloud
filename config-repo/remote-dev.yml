@@ -1,1 +1,97 @@
+eureka:
+  client:
+    service-url:
+      defaultzone: http://127.0.0.1:8761/eureka/
+# 数据库访问配置
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/vehicle?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+    username: root
+    password: Blct2018mysql
+    jackson:
+      date-format: yyyy-MM-dd HH:mm:ss
+      time-zone: GMT+8
+  rabbitmq:
+    addresses: 192.168.28.128:5672
+    username: guest
+    password: guest
+    virtual-host: /
+    connection-timeout:
+    listener:
+      simple:
+        acknowledge-mode: manual #手动签收
+        concurrency: 5
+        max-concurrency: 10
+  redis:
+    host: 192.168.28.128
+    password: blct2018
+    database: 1
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: 20ms
+        max-idle: 500
+        min-idle: 0
+    timeout: 2000ms
+    port: 6379
+mybatis:
+  mapperScanner:
+    basePackage: com.blct.*.mapper
 
+
+
+#mybatis
+mybatis-plus:
+  #启动时是否检查 MyBatis XML 文件的存在，默认不检查。
+  check-config-location: false
+  #mapper.xml文件存放路径
+  mapper-locations: classpath*:mapper/*.xml
+  #实体类的存放路径
+  type-aliases-package: com.blct.*.entity
+  #枚举
+  type-enums-package: com.blct
+  #执行器
+  executor-type: simple
+  global-config:
+    db-config:
+      #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+      field-strategy: not_empty
+      #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+      id-type: auto
+      #驼峰下划线转换
+      column-underline: true
+      #表名、是否使用下划线命名，默认数据库表使用下划线命名
+      table-underline: true
+      # 逻辑已删除值(默认为 1)
+      logic-delete-value: 1
+      # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0
+      #数据库
+      db-type: mysql
+      #是否开启大写命名，默认不开启。
+      capital-mode: false
+      #是否开启 LIKE 查询，即根据 entity 自动生成的 where 条件中 String 类型字段 是否使用 LIKE，默认不开启
+      column-like: false
+      #表名前缀
+      table-prefix: t_
+    #刷新mapper 调试神器
+    refresh: true
+    #是否缓存 Sql 解析，默认不缓存
+    sql-parser-cache: true
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    aggressive-lazy-loading: true
+    lazy-loading-enabled: true
+    #MyBatis 自动映射策略
+    auto-mapping-behavior: full
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+  returnPageInfo: check
+env: wang1111
