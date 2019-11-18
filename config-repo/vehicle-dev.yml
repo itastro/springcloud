@@ -14,7 +14,7 @@ spring:
       date-format: yyyy-MM-dd HH:mm:ss
       time-zone: GMT+8
   rabbitmq:
-    addresses: 192.168.28.128:5672
+    addresses: 47.98.182.165:5672
     username: guest
     password: guest
     virtual-host: /
