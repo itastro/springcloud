@@ -9,7 +9,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/vehicle?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&allowMultiQueries=true
     username: root
-    password: Blct2018mysql
+    password: qwer1234
     jackson:
       date-format: yyyy-MM-dd HH:mm:ss
       time-zone: GMT+8
@@ -25,8 +25,8 @@ spring:
         concurrency: 5
         max-concurrency: 10
   redis:
-    host: 192.168.28.128
-    password: blct2018
+    host: 192.168.10.172
+    password: 
     database: 1
     jedis:
       pool:
